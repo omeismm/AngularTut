@@ -1,0 +1,12 @@
+@if (isServerRunning) {
+<p>Welcome back, Friend!</p>
+    }
+@else{
+<p>Not Logged IN!</p>
+}
+
+@for (user of users; track user.id) {
+<p>{{ user.name }}</p>
+}
+
+<router-outlet />
