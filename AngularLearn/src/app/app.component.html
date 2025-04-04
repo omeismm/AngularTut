@@ -1,12 +1,17 @@
+<p>using if, else</p>
 @if (isServerRunning) {
 <p>Welcome back, Friend!</p>
     }
 @else{
 <p>Not Logged IN!</p>
 }
-
+<p>using for</p>
 @for (user of users; track user.id) {
 <p>{{ user.name }}</p>
 }
+<p> contentEditable Div</p>
+<div [contentEditable]="isEditable"></div>
+<p> contentEditable Div</p>
+
 
 <router-outlet />
