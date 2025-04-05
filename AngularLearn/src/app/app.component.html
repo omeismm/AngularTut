@@ -12,6 +12,16 @@
 <p> contentEditable Div</p>
 <div [contentEditable]="isEditable"></div>
 <p> contentEditable Div</p>
-
+<button (click)="edit()">Click to toggle div editable</button>
+<p>mouseover</p>
+<section (mouseover)="onMouseOver()">
+  There's a secret message for you, hover to reveal 👀
+  {{ message }}
+</section>
+<p>using input</p>
+<app-user name="Simran"></app-user>
+<p>using output</p>
+<app-child (addItemEvent)="addItem($event)" />
+<p>🐢 all the way down {{ items.length }}</p>
 
 <router-outlet />
