@@ -12,16 +12,41 @@
 <p> contentEditable Div</p>
 <div [contentEditable]="isEditable"></div>
 <p> contentEditable Div</p>
+
 <button (click)="edit()">Click to toggle div editable</button>
+
 <p>mouseover</p>
 <section (mouseover)="onMouseOver()">
   There's a secret message for you, hover to reveal 👀
   {{ message }}
 </section>
-<p>using input</p>
+
+<p>using input and images. note that the code insists i put the image in public folder and not in a new src/app/assets folder</p>
 <app-user name="Simran"></app-user>
+
 <p>using output</p>
 <app-child (addItemEvent)="addItem($event)" />
 <p>🐢 all the way down {{ items.length }}</p>
 
+<p>Deferrable Views</p>
+<div>
+  <h1>How I feel about Angular</h1>
+  <article>
+    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
+    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
+    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted.</p>
+  </article>
+  @defer (on viewport){
+  <app-comments /><!--basically when the component is in view, it will start loading-->
+  }
+  @placeholder{
+  <p>Future comments</p><!--this is for when the component is not in view, it will show this placeholder instead of the component. the way i can see this is by scrolling up then opening inspect element-->
+  }
+  @loading (minimum 2s){
+  <p>Loading comments...</p><!--this is for when the component is loading (like a spinner)-->
+  }
+</div>
 <router-outlet />
