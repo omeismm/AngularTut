@@ -1,22 +1,29 @@
+//app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user.component';
 import { ChildComponent } from './child.component';
 import { CommentsComponent } from './comments.component';
+import { HomehomeComponent } from './homehome/homehome.component';
+import { UseruserComponent } from './useruser/useruser.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     ChildComponent,
-    CommentsComponent
+    CommentsComponent,
+    HomehomeComponent,
+    UseruserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterOutlet
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+<!--app.component.html-->
 <p>using if, else</p>
 @if (isServerRunning) {
 <p>Welcome back, Friend!</p>
@@ -49,4 +50,14 @@
   <p>Loading comments...</p><!--this is for when the component is loading (like a spinner)-->
   }
 </div>
+
+
+
+<nav>
+  <a href="/">Home</a>
+  |
+  <a href="/user">User</a>
+</nav>
+<router-outlet></router-outlet>
+
 <router-outlet />
