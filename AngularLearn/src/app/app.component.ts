@@ -1,5 +1,6 @@
 //app.component.ts
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';//this is a "class" not an module to import so we put this here and not in the app.module.ts
 
 @Component({
   selector: 'app-root',
@@ -26,4 +27,9 @@ export class AppComponent {
   addItem(item: string) {
     this.items.push(item);
   }
+  profileForm = new FormGroup({ name: new FormControl(''), email: new FormControl(''), });
+  handleSubmit() {
+    alert(this.profileForm.value.name + ' | ' + this.profileForm.value.email);
+  }
+
 }

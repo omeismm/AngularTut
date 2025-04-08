@@ -15,6 +15,12 @@ import { Component, Input } from '@angular/core';
         <img [ngSrc]="logoUrl" [alt]="logoAlt"  width="32" height="32" />
       </li>
     </ul>
+    <p>{{ username }}'s favorite framework: {{ favoriteFramework }}</p>
+    <label for="framework">
+  Favorite Framework:
+  <input id="framework" type="text" [(ngModel)]="favoriteFramework" />
+  </label>
+  <button (click)="showFramework()">Show Framework</button>
     `,
 })
 export class UserComponent {
@@ -22,4 +28,6 @@ export class UserComponent {
   logoUrl = 'logo.svg';
   logoAlt = 'Angular logo';
   username = 'youngTech';
+  favoriteFramework = '';
+  showFramework() { alert(this.favoriteFramework); }
 }

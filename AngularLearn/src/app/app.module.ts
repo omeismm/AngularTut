@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user.component';
 import { ChildComponent } from './child.component';
 import { CommentsComponent } from './comments.component';
 import { HomehomeComponent } from './homehome/homehome.component';
 import { UseruserComponent } from './useruser/useruser.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,11 @@ import { UseruserComponent } from './useruser/useruser.component';
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    RouterOutlet
+    RouterOutlet,
+    RouterLink,
+    FormsModule,
+    ReactiveFormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

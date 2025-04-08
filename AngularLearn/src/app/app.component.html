@@ -22,9 +22,25 @@
   {{ message }}
 </section>
 
-<p>using input and images. note that the code insists i put the image in public folder and not in a new src/app/assets folder</p>
+<p>using input and images. note that the code insists i put the image in public folder and not in a new src/app/assets folder(also now using forms)</p>
 <app-user name="Simran"></app-user>
-
+<p>reactive forms</p>
+<form [formGroup]="profileForm"
+      (ngSubmit)="handleSubmit()">
+  <label>
+    Name
+    <input type="text" formControlName="name" />
+  </label>
+  <label>
+    Email
+    <input type="email" formControlName="email" />
+  </label>
+  <button type="submit">Submit</button>
+</form>
+...
+<h2>Profile Form</h2>
+<p>Name: {{ profileForm.value.name }}</p>
+<p>Email: {{ profileForm.value.email }}</p>
 <p>using output</p>
 <app-child (addItemEvent)="addItem($event)" />
 <p>🐢 all the way down {{ items.length }}</p>
@@ -54,9 +70,9 @@
 
 
 <nav>
-  <a href="/">Home</a>
+  <a routerLink="/">Home</a>
   |
-  <a href="/user">User</a>
+  <a routerLink="/user">User</a>
 </nav>
 <router-outlet></router-outlet>
 
