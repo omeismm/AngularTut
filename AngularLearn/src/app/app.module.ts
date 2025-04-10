@@ -12,6 +12,7 @@ import { HomehomeComponent } from './homehome/homehome.component';
 import { UseruserComponent } from './useruser/useruser.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LowerCasePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterOutlet,
     RouterLink,
     FormsModule,
-    ReactiveFormsModule
-   
+    ReactiveFormsModule,
+    LowerCasePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
