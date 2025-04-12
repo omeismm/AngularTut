@@ -13,6 +13,8 @@ import { UseruserComponent } from './useruser/useruser.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LowerCasePipe } from '@angular/common';
+import { DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { LowerCasePipe } from '@angular/common';
     ChildComponent,
     CommentsComponent,
     HomehomeComponent,
-    UseruserComponent
+    UseruserComponent,
+    ReversePipe 
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,10 @@ import { LowerCasePipe } from '@angular/common';
     RouterLink,
     FormsModule,
     ReactiveFormsModule,
-    LowerCasePipe
+    LowerCasePipe,
+    DecimalPipe,
+    DatePipe,
+    CurrencyPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

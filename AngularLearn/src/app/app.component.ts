@@ -52,4 +52,9 @@ export class AppComponent {
   }
   //note that for lesson 20 and 21, there are things that outside the scope if the lesson, so i need to read the documentation on dependency injection
   pipethis = 'yOUnGtEch';
+
+  num = 103.1234;
+  birthday = new Date(2023, 3, 2);
+  cost = 4560.34;
+  word = 'You are a champion';
 }
