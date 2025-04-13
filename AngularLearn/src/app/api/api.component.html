@@ -1,0 +1,23 @@
+<div class="cat-container">
+  <h2>Random Cat Image</h2>
+
+  @if (isLoading) {
+  <div class="loading">
+    Loading cat image...
+  </div>
+  } @else if (errorMessage) {
+  <div class="error">
+    {{ errorMessage }}
+  </div>
+  } @else if (catImageUrl) {
+  <div class="image-container">
+    <img [src]="catImageUrl" alt="Random cat image" class="cat-image">
+  </div>
+  } @else {
+  <div>No cat image available</div>
+  }
+
+  <button (click)="refreshCatImage()" class="refresh-button" [disabled]="isLoading">
+    Get New Cat
+  </button>
+</div>

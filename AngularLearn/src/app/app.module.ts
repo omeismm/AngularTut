@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LowerCasePipe } from '@angular/common';
 import { DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
 import { ReversePipe } from './reverse.pipe';
+import { ApiComponent } from './api/api.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ReversePipe } from './reverse.pipe';
     CommentsComponent,
     HomehomeComponent,
     UseruserComponent,
-    ReversePipe 
+    ReversePipe,
+    ApiComponent 
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import { ReversePipe } from './reverse.pipe';
     DatePipe,
     CurrencyPipe
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
