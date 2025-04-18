@@ -1,23 +1,25 @@
-<div class="cat-container">
-  <h2>Random Cat Image</h2>
+<div class="flex flex-col items-center p-5 w-full h-[600px] relative">
+  <h2 class="text-xl font-bold text-gray-800 mb-3">Random Cat Image</h2>
 
   @if (isLoading) {
-  <div class="loading">
+  <div class="flex items-center justify-center w-full h-[450px] my-5 text-gray-600">
     Loading cat image...
   </div>
   } @else if (errorMessage) {
-  <div class="error">
+  <div class="flex items-center justify-center w-full h-[450px] my-5 text-red-600">
     {{ errorMessage }}
   </div>
   } @else if (catImageUrl) {
-  <div class="image-container">
-    <img [src]="catImageUrl" alt="Random cat image" class="cat-image">
+  <div class="flex items-center justify-center w-full h-[450px] my-5 overflow-hidden">
+    <img [src]="catImageUrl" alt="Random cat image" class="max-w-full max-h-full object-contain rounded-lg shadow-md">
   </div>
   } @else {
-  <div>No cat image available</div>
+  <div class="flex items-center justify-center w-full h-[450px] my-5 text-gray-500">No cat image available</div>
   }
 
-  <button (click)="refreshCatImage()" class="refresh-button" [disabled]="isLoading">
+  <button (click)="refreshCatImage()"
+          [disabled]="isLoading"
+          class="absolute bottom-5 px-5 py-2.5 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed text-base transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
     Get New Cat
   </button>
 </div>

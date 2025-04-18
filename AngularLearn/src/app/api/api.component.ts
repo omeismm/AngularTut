@@ -12,8 +12,10 @@ interface CatResponse {
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
-  styleUrl: './api.component.css'
+  // Removed the styleUrl line or set it to an empty string
+  // since we're now using Tailwind classes directly in the HTML
 })
+
 export class ApiComponent implements OnInit {
   catImageUrl: string | null = null;
   isLoading = false;

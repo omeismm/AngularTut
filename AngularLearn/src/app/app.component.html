@@ -1,94 +1,143 @@
 <!--app.component.html-->
-<p>using if, else</p>
-@if (isServerRunning) {
-<p>Welcome back, Friend!</p>
+<div class="container mx-auto px-4 py-8 max-w-4xl">
+  <!-- Conditional rendering section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">using if, else</h2>
+  @if (isServerRunning) {
+  <p class="p-3 bg-green-100 text-green-800 rounded-md mb-4">Welcome back, Friend!</p>
+  }
+  @else{
+  <p class="p-3 bg-red-100 text-red-800 rounded-md mb-4">Not Logged IN!</p>
+  }
+
+  <!-- API section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">api request for cat</h2>
+  <div class="mb-6">
+    <app-api></app-api>
+  </div>
+
+  <!-- For loop section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">using for</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
+    @for (user of users; track user.id) {
+    <p class="p-2 bg-blue-50 rounded-md text-blue-800">{{ user.name }}</p>
     }
-@else{
-<p>Not Logged IN!</p>
-}
-<p> api request for cat</p>
-<app-api></app-api>
+  </div>
 
-<p>using for</p>
-@for (user of users; track user.id) {
-<p>{{ user.name }}</p>
-}
-<p> contentEditable Div</p>
-<div [contentEditable]="isEditable"></div>
-<p> contentEditable Div</p>
+  <!-- ContentEditable section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">contentEditable Div</h2>
+  <div [contentEditable]="isEditable" class="border border-gray-300 p-3 min-h-[50px] rounded-md mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+  <button (click)="edit()"
+          class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-colors duration-200 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+    Click to toggle div editable
+  </button>
 
-<button (click)="edit()">Click to toggle div editable</button>
+  <!-- Mouseover section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">mouseover</h2>
+  <section (mouseover)="onMouseOver()"
+           class="p-4 bg-yellow-50 border border-yellow-200 rounded-md cursor-pointer mb-6 hover:bg-yellow-100 transition-colors duration-200">
+    <span class="block mb-2">There's a secret message for you, hover to reveal 👀</span>
+    <span class="font-medium text-yellow-700">{{ message }}</span>
+  </section>
 
-<p>mouseover</p>
-<section (mouseover)="onMouseOver()">
-  There's a secret message for you, hover to reveal 👀
-  {{ message }}
-</section>
+  <!-- User component section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">using input and images</h2>
+  <div class="mb-6">
+    <app-user name="Simran"></app-user>
+  </div>
 
-<p>using input and images. note that the code insists i put the image in public folder and not in a new src/app/assets folder(also now using forms)</p>
-<app-user name="Simran"></app-user>
-<p>reactive forms</p>
-<form [formGroup]="profileForm"
-      (ngSubmit)="handleSubmit()">
-  <label>
-    Name
-    <input type="text" formControlName="name" />
-  </label>
-  <label>
-    Email
-    <input type="email" formControlName="email" />
-  </label>
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-</form>
-...
-<h2>Profile Form</h2>
-<p>Name: {{ profileForm.value.name }}</p>
-<p>Email: {{ profileForm.value.email }}</p>
-<p>using output</p>
-<app-child (addItemEvent)="addItem($event)" />
-<p>🐢 all the way down {{ items.length }}</p>
+  <!-- Reactive forms section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">reactive forms</h2>
+  <form [formGroup]="profileForm"
+        (ngSubmit)="handleSubmit()"
+        class="bg-white p-6 rounded-lg shadow-md mb-6">
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+        Name
+        <input type="text"
+               formControlName="name"
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" />
+      </label>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2">
+        Email
+        <input type="email"
+               formControlName="email"
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-1" />
+      </label>
+    </div>
+    <button type="submit"
+            [disabled]="!profileForm.valid"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50 disabled:cursor-not-allowed">
+      Submit
+    </button>
+  </form>
 
-<p>Deferrable Views</p>
-<div>
-  <h1>How I feel about Angular</h1>
-  <article>
-    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
-    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
-    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
-    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
-    <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
-    <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted.</p>
-  </article>
-  @defer (on viewport){
-  <app-comments /><!--basically when the component is in view, it will start loading-->
-  }
-  @placeholder{
-  <p>Future comments</p><!--this is for when the component is not in view, it will show this placeholder instead of the component. the way i can see this is by scrolling up then opening inspect element-->
-  }
-  @loading (minimum 2s){
-  <p>Loading comments...</p><!--this is for when the component is loading (like a spinner)-->
-  }
+  <!-- Profile form display -->
+  <div class="mb-6">
+    <h2 class="text-xl font-bold text-gray-800 mb-2">Profile Form</h2>
+    <p class="text-gray-700">Name: <span class="font-medium">{{ profileForm.value.name }}</span></p>
+    <p class="text-gray-700">Email: <span class="font-medium">{{ profileForm.value.email }}</span></p>
+  </div>
+
+  <!-- Output section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">using output</h2>
+  <div class="mb-6">
+    <app-child (addItemEvent)="addItem($event)" />
+    <p class="mt-3 text-green-700 font-medium">🐢 all the way down {{ items.length }}</p>
+  </div>
+
+  <!-- Deferrable Views section -->
+  <h2 class="text-xl font-bold text-gray-800 mb-2">Deferrable Views</h2>
+  <div class="mb-6 bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold text-gray-900 mb-4">How I feel about Angular</h1>
+    <article class="prose max-w-none">
+      <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+      <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
+      <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+      <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted. In fact, I think I'll say these exact same things again a few times.</p>
+      <p>Angular is my favorite framework, and this is why. Angular has the coolest deferrable view feature that makes defer loading content the easiest and most ergonomic it could possibly be. The Angular community is also filled with amazing contributors and experts that create excellent content. The community is welcoming and friendly, and it really is the best community out there.</p>
+      <p>I can't express enough how much I enjoy working with Angular. It offers the best developer experience I've ever had. I love that the Angular team puts their developers first and takes care to make us very happy. They genuinely want Angular to be the best framework it can be, and they're doing such an amazing job at it, too. This statement comes from my heart and is not at all copied and pasted.</p>
+    </article>
+    @defer (on viewport){
+    <app-comments /><!--basically when the component is in view, it will start loading-->
+    }
+    @placeholder{
+    <p class="text-gray-500 italic p-4 bg-gray-50 rounded-md">Future comments</p><!--this is for when the component is not in view, it will show this placeholder instead of the component. the way i can see this is by scrolling up then opening inspect element-->
+    }
+    @loading (minimum 2s){
+    <p class="text-blue-500 flex items-center justify-center p-4">
+      <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Loading comments...
+    </p><!--this is for when the component is loading (like a spinner)-->
+    }
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex space-x-4 py-4 mb-6 border-t border-b border-gray-200">
+    <a routerLink="/" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+    <span class="text-gray-400">|</span>
+    <a routerLink="/user" class="text-blue-600 hover:text-blue-800 font-medium">User</a>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <!-- Other displays -->
+  <div class="mt-6">
+    <p class="text-gray-800 font-medium mb-2">Car Listing: <span class="font-normal">{{ display }}</span></p>
+
+    <h2 class="text-xl font-bold text-gray-800 mb-2">piping</h2>
+    <p class="mb-4 text-gray-700">{{ pipethis | lowercase }}</p>
+
+    <ul class="space-y-2 mb-6">
+      <li class="text-gray-700">Number with "decimal" <span class="font-medium">{{ num | number:"3.2-2" }}</span></li>
+      <li class="text-gray-700">Date with "date" <span class="font-medium">{{ birthday | date: 'medium' }}</span></li>
+      <li class="text-gray-700">Currency with "currency" <span class="font-medium">{{ cost | currency }}</span></li>
+      <li class="text-gray-700">Currency with "currency" <span class="font-medium">{{ cost | currency:'EUR' }}</span></li>
+      <li class="text-gray-700">Reverse Machine: <span class="font-medium">{{ word | reverse }}</span></li>
+    </ul>
+  </div>
 </div>
 
-
-
-<nav>
-  <a routerLink="/">Home</a>
-  |
-  <a routerLink="/user">User</a>
-</nav>
-<router-outlet></router-outlet>
-
-
-
-<p>Car Listing: {{ display }}</p>
-<p>piping</p>
-{{pipethis | lowercase }}
-<li>Number with "decimal" {{ num | number:"3.2-2" }}</li>
-
-<li>Date with "date" {{ birthday | date: 'medium' }}</li>
-
-<li>Currency with "currency" {{ cost | currency }}</li>
-
-<li>Currency with "currency" {{ cost | currency:'EUR' }}</li>
-Reverse Machine: {{ word | reverse }}

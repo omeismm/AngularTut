@@ -7,7 +7,7 @@ import { CarService } from './car.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  // Removed styleUrl as we're using Tailwind classes directly
 })
 export class AppComponent {
   title = 'AngularLearn';
