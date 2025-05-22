@@ -17,6 +17,7 @@ import { DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
 import { ReversePipe } from './reverse.pipe';
 import { ApiComponent } from './api/api.component';
 import { provideHttpClient } from '@angular/common/http';
+import { TailwindlearnComponent } from './tailwindlearn/tailwindlearn.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { provideHttpClient } from '@angular/common/http';
     HomehomeComponent,
     UseruserComponent,
     ReversePipe,
-    ApiComponent 
+    ApiComponent,
+    TailwindlearnComponent 
   ],
   imports: [
     BrowserModule,
